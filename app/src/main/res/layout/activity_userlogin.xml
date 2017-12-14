@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="40dp"
+    android:paddingRight="40dp"
+    android:background="@color/colorPrimary"
+    tools:context="com.example.news.newsapp.Userlogin">
+
+    <TextView
+        android:id="@+id/logo_userlogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:text="News App"
+        android:padding="50dp"
+        android:textAlignment="center"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/email_userLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="email"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="#ccc"
+        android:background="#fff"
+        android:padding="15dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@+id/logo_userlogin"
+        android:inputType="textEmailAddress" />
+    <EditText
+        android:id="@+id/password_userLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="password"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="#ccc"
+        android:background="#fff"
+        android:padding="15dp"
+        android:inputType="textPassword"
+        android:layout_below="@+id/email_userLogin"
+        android:layout_alignParentStart="true" />
+    <Button
+        android:id="@+id/loginButton_userLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#fff"
+        android:text="Login"
+        android:layout_below="@+id/password_userLogin"
+        android:layout_alignStart="@+id/password_userLogin"
+        android:layout_marginTop="16dp" />
+
+    <TextView
+        android:id="@+id/textViewRegister_signIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#fff"
+        android:text="Create New User"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/loginButton_userLogin"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:text="&#169;2017 News App"
+        android:textColor="@color/colorAccent"
+        android:textStyle="bold" />
+
+
+</RelativeLayout>
