@@ -46,7 +46,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // Session Manager Class
     SessionManager session;
-
     // Button Logout
     Button btnLogout;
 
