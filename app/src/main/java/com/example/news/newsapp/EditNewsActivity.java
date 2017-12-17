@@ -20,6 +20,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
@@ -314,40 +315,42 @@ public class EditNewsActivity extends AppCompatActivity implements NavigationVie
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode==IMG_REQUEST&&resultCode ==RESULT_OK&&data!=null)
-        {
-            // Get the image from data
-            Uri path=data.getData();
+        if(resultCode != RESULT_CANCELED) {
+            if (requestCode == IMG_REQUEST && resultCode == RESULT_OK && data != null) {
 
-            try {
-                bitmap= MediaStore.Images.Media.getBitmap(getContentResolver(),path);
+              //  Log.d("Path","Path: "+data.getData().toString());
+                // Get the image from data
+                Uri path = data.getData();
 
-                //preview selected image
-                img.setImageBitmap(bitmap);
-                UploadImage();
-            } catch (IOException e) {
-                e.printStackTrace();
+                try {
+
+                    bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), path);
+
+                    //preview selected image
+                    img.setImageBitmap(bitmap);
+                    UploadImage();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (requestCode == VIDEO_REQUEST && resultCode == RESULT_OK && data != null) {
+
+
+                // Get the video from data
+                Uri selectedVideo = data.getData();
+                myFile = new File(getRealPathFromURI1(EditNewsActivity.this, selectedVideo));
+                uploadVideo(myFile);
+                //ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 125);
+
+            } else if (requestCode == AUDIO_REQUEST && resultCode == RESULT_OK && data != null) {
+
+
+                // Get the video from data
+                Uri selectedVideo = data.getData();
+                myFile = new File(getRealPathFromURI1(EditNewsActivity.this, selectedVideo));
+                uploadAudio(myFile);
+                //ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 125);
+
             }
-        }else if(requestCode==VIDEO_REQUEST&&resultCode ==RESULT_OK&&data!=null)
-        {
-
-
-                    // Get the video from data
-                    Uri selectedVideo = data.getData();
-                    myFile = new File(getRealPathFromURI1(EditNewsActivity.this,selectedVideo));
-                    uploadVideo(myFile);
-            //ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 125);
-
-        }else if(requestCode==AUDIO_REQUEST&&resultCode ==RESULT_OK&&data!=null)
-        {
-
-
-            // Get the video from data
-            Uri selectedVideo = data.getData();
-            myFile = new File(getRealPathFromURI1(EditNewsActivity.this,selectedVideo));
-            uploadAudio(myFile);
-            //ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 125);
-
         }
     }
     @Override

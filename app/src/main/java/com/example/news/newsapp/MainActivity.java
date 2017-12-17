@@ -112,6 +112,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
            // }
         //});
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 125);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 125);
         /*Button newReportButton=(Button)findViewById(R.id.newReport_button);
         newReportButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -152,6 +153,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     //Toast.makeText(MainActivity.this, "this is " + view.getTag(), Toast.LENGTH_SHORT).show();
                     i.putExtra("reportId", view.getTag().toString());
                     startActivity(i);
+                    finish();
                 }
             });
             }
