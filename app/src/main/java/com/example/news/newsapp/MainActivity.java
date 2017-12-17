@@ -52,9 +52,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     String SessionId,SessionEmail,SessionPassword;
     Context mContext;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
